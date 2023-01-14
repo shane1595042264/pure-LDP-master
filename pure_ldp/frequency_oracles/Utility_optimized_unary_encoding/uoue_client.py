@@ -21,7 +21,7 @@ class UOUEClient(FreqOracleClient):
             use_oue: Optional boolean - if True, will use Optimised Unary Encoding (OUE)
             index_mapper: Optional function - maps data items to indexes in the range {0, 1, ..., d-1} where d is the size of the data domain
         """
-        super().__init__(epsilon, d, Xs)
+        super().__init__(epsilon, d, index_mapper=index_mapper)
         self.update_params(epsilon, d, index_mapper)
         self.Xs = Xs
 

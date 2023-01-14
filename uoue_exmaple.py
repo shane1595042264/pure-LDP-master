@@ -3,10 +3,10 @@ import numpy as np
 from collections import Counter
 from pure_ldp.frequency_oracles.Utility_optimized_unary_encoding import UOUEClient, UOUEServer
 
-dataXs = np.concatenate(([1] * 8000, [2] * 4000, [3] * 1000, [4] * 500))
+dataXn = np.concatenate(([1] * 8000, [2] * 4000, [3] * 1000, [4] * 500))
 # print(dataXs)
 
-dataXn = np.concatenate(([5] * 1000, [6] * 1800, [7] * 2000, [8] * 300))
+dataXs = np.concatenate(([5] * 1000, [6] * 1800, [7] * 2000, [8] * 300))
 
 #---------------------------------------Test---------------------------------------------------------
 
@@ -19,9 +19,9 @@ Original_Xn_freq = list(Counter(dataXn).values())  # True frequencies of the dat
 
 dataTotal = np.concatenate((dataXs, dataXn))
 
-Original_Freq_total = list(Counter())
+Original_Freq_total = list(Counter(dataTotal).values())  # True frequencies of the dataset
 
-epsilon = 3
+epsilon = 0.3
 d = 8
 
 client_uoue = UOUEClient(epsilon=epsilon, Xs=dataXs, d=d)

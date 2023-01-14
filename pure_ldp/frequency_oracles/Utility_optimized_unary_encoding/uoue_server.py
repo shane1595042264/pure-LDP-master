@@ -81,7 +81,7 @@ class UOUEServer(FreqOracleServer):
         self.check_warnings(suppress_warnings=suppress_warnings)
         index = self.index_mapper(data)
 
-        if data in self.Xn:
+        if data not in self.Xs:
             return self.aggregated_data[index]
 
         self.check_and_update_estimates()
