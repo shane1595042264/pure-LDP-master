@@ -82,7 +82,8 @@ class UOUEServer(FreqOracleServer):
         index = self.index_mapper(data)
 
         if data not in self.Xs:
-            return self.aggregated_data[index]
+            return self.aggregated_data[index]/(1-self.d2) # Estimation from equation (10) in 4.2
+
 
         self.check_and_update_estimates()
         return self.estimated_data[index]
